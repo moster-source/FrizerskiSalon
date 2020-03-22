@@ -1,0 +1,8 @@
+hr\edunova\frizerskisalon\model\PosjetUsluga.class
+hr\edunova\frizerskisalon\util\HibernateUtil.class
+hr\edunova\frizerskisalon\model\Posjet.class
+hr\edunova\frizerskisalon\model\Usluga.class
+hr\edunova\frizerskisalon\model\Klijent.class
+hr\edunova\frizerskisalon\model\Djelatnik.class
+hr\edunova\frizerskisalon\Start.class
+hr\edunova\frizerskisalon\model\Entitet.class
