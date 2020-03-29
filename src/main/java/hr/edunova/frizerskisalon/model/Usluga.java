@@ -19,10 +19,16 @@ public class Usluga extends Entitet{
     
     private String naziv;
     private BigDecimal cijena;
+    private Integer kolicina;
 
-    
-    
-    
+    public Integer getKolicina() {
+        return kolicina;
+    }
+
+    public void setKolicina(Integer kolicina) {
+        this.kolicina = kolicina;
+    }
+
     public String getNaziv() {
         return naziv;
     }

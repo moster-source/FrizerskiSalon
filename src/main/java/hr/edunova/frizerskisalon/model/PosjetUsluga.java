@@ -23,9 +23,6 @@ public class PosjetUsluga extends Entitet {
     @ManyToOne
     private Posjet posjet;
     
-    
-    
-
     public Usluga getUsluga() {
         return usluga;
     }

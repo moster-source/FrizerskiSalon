@@ -5,7 +5,7 @@
  */
 package hr.edunova.frizerskisalon.controller;
 
-import hr.edunova.frizerskisalon.model.Klijent;
+import hr.edunova.frizerskisalon.model.Posjet;
 import hr.edunova.frizerskisalon.util.EdunovaException;
 import java.util.List;
 
@@ -13,13 +13,13 @@ import java.util.List;
  *
  * @author krpa
  */
-public class ObradaKlijent extends Obrada<Klijent> {
+public class ObradaPosjet extends Obrada<Posjet> {
     
-    public ObradaKlijent(Klijent entitet) {
+    public ObradaPosjet(Posjet entitet) {
         super(entitet);
     }
     
-    public ObradaKlijent() {
+    public ObradaPosjet() {
         super();
     }
 
@@ -39,8 +39,8 @@ public class ObradaKlijent extends Obrada<Klijent> {
     }
 
     @Override
-    public List<Klijent> getPodaci() {
-       return session.createQuery("from Klijent").list();
+    public List<Posjet> getPodaci() {
+       return session.createQuery("from Posjet").list();
          
     }
 

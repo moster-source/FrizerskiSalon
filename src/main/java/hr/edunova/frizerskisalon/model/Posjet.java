@@ -32,14 +32,28 @@ public class Posjet extends Entitet{
     private Date datum;
 
     
-    
-   
     public Date getDatum() {
         return datum;
     }
 
     public void setDatum(Date datum) {
         this.datum = datum;
+    }
+
+    public Klijent getKlijent() {
+        return klijent;
+    }
+
+    public void setKlijent(Klijent klijent) {
+        this.klijent = klijent;
+    }
+
+    public Djelatnik getDjelatnik() {
+        return djelatnik;
+    }
+
+    public void setDjelatnik(Djelatnik djelatnik) {
+        this.djelatnik = djelatnik;
     }
 
     
