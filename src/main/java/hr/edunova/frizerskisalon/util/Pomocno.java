@@ -5,6 +5,7 @@
  */
 package hr.edunova.frizerskisalon.util;
 
+import hr.edunova.frizerskisalon.model.Administrator;
 import hr.edunova.frizerskisalon.model.Djelatnik;
 import hr.edunova.frizerskisalon.model.Klijent;
 import hr.edunova.frizerskisalon.model.Posjet;
@@ -20,6 +21,10 @@ import org.hibernate.Session;
  * @author krpa
  */
 public class Pomocno {
+    
+       public static String getNazivAplikacije(){
+        return "Frizerski Salon";
+    }
     
     
     public static void pocetniInsert(){
@@ -88,6 +93,11 @@ public class Pomocno {
         pu.setPosjet(p);
         pu.setUsluga(u);
         
+        Administrator a = new Administrator();
+        a.setIme("Marko");
+        a.setPrezime("Marić");
+        a.setTelefon("099-1618555");
+        a.setEmail("mmaric@gmail.com");
         
         
         
@@ -105,6 +115,7 @@ public class Pomocno {
         s.save(u5);
         s.save(p);
         s.save(pu);
+        s.save(a);
         
         
         s.getTransaction().commit();

@@ -5,36 +5,17 @@
  */
 package hr.edunova.frizerskisalon.view;
 
-import hr.edunova.frizerskisalon.util.HibernateUtil;
-import org.hibernate.Session;
-
 /**
  *
  * @author krpa
  */
-public class SplashScreen extends javax.swing.JFrame {
+public class ViewDjelatnik extends javax.swing.JFrame {
 
     /**
-     * Creates new form SplashScreen
+     * Creates new form ViewDjelatnik
      */
-    public SplashScreen() {
+    public ViewDjelatnik() {
         initComponents();
-       Ucitavanje ucitavanje = new Ucitavanje();
-        ucitavanje.start();
-    }
-    
-    private class Ucitavanje extends Thread{
-
-        @Override
-        public void run() {
-            Session s = HibernateUtil.getSessionFactory().openSession();
-            if(s.getMetamodel().getEntities().size()>0){
-                new Izbornik().setVisible(true);
-                dispose();
-            
-            }
-        }
-        
     }
 
     /**
@@ -46,30 +27,17 @@ public class SplashScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setUndecorated(true);
-        setType(java.awt.Window.Type.POPUP);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splash2.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(18, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
@@ -79,9 +47,8 @@ public class SplashScreen extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-  
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
