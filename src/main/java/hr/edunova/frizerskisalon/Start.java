@@ -8,6 +8,7 @@ package hr.edunova.frizerskisalon;
 import hr.edunova.frizerskisalon.model.Djelatnik;
 import hr.edunova.frizerskisalon.util.HibernateUtil;
 import hr.edunova.frizerskisalon.util.Pomocno;
+import hr.edunova.frizerskisalon.view.SplashScreen;
 import org.hibernate.Session;
 
 /**
@@ -18,7 +19,9 @@ public class Start {
     
     public Start(){
         
-        Pomocno.pocetniInsert();
+        //Pomocno.pocetniInsert();
+        new SplashScreen().setVisible(true);
+        
         //HibernateUtil.getSessionFactory().openSession();
         
         

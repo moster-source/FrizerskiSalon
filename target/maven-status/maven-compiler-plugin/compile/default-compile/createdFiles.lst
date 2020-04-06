@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-hr\edunova\frizerskisalon\model\PosjetUsluga.class
-hr\edunova\frizerskisalon\util\HibernateUtil.class
-hr\edunova\frizerskisalon\model\Posjet.class
-hr\edunova\frizerskisalon\model\Usluga.class
-=======
 hr\edunova\frizerskisalon\view\ViewUsluga$6.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik$4.class
 hr\edunova\frizerskisalon\util\EdunovaException.class
@@ -28,17 +22,11 @@ hr\edunova\frizerskisalon\view\ViewKlijent$4.class
 hr\edunova\frizerskisalon\view\ViewUsluga$4.class
 hr\edunova\frizerskisalon\model\PosjetUsluga.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik$2.class
->>>>>>> Stashed changes
 hr\edunova\frizerskisalon\model\Klijent.class
-hr\edunova\frizerskisalon\model\Djelatnik.class
 hr\edunova\frizerskisalon\Start.class
-<<<<<<< Updated upstream
-hr\edunova\frizerskisalon\model\Entitet.class
-=======
 hr\edunova\frizerskisalon\model\Posjet.class
 hr\edunova\frizerskisalon\view\ViewKlijent$3.class
 hr\edunova\frizerskisalon\model\Entitet.class
 hr\edunova\frizerskisalon\controller\Obrada.class
 hr\edunova\frizerskisalon\controller\ObradaPosjet.class
 hr\edunova\frizerskisalon\view\ViewUsluga$3.class
->>>>>>> Stashed changes

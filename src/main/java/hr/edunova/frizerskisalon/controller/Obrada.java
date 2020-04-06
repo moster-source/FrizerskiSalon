@@ -35,10 +35,18 @@ public abstract class Obrada<T> {
     public Obrada() {
         session = HibernateUtil.getSessionFactory().openSession();
     }
-    
-    
+
+    public T getEntitet() {
+        return entitet;
+    }
+
+    public void setEntitet(T entitet) {
+        this.entitet = entitet;
+    }
+
     
     public T create() throws EdunovaException{
+        System.out.println(entitet);
         kontrolaCreate();
         save();
         nakonSpremanja();

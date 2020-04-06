@@ -5,10 +5,9 @@
  */
 package hr.edunova.frizerskisalon.util;
 
+import hr.edunova.frizerskisalon.model.Administrator;
 import hr.edunova.frizerskisalon.model.Djelatnik;
 import hr.edunova.frizerskisalon.model.Klijent;
-<<<<<<< Updated upstream
-=======
 import hr.edunova.frizerskisalon.model.Posjet;
 import hr.edunova.frizerskisalon.model.PosjetUsluga;
 import hr.edunova.frizerskisalon.model.Usluga;
@@ -18,7 +17,6 @@ import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Locale;
->>>>>>> Stashed changes
 import org.hibernate.Session;
 
 /**
@@ -27,8 +25,6 @@ import org.hibernate.Session;
  */
 public class Pomocno {
     
-<<<<<<< Updated upstream
-=======
     private final static DecimalFormat df = df();
     
        public static String getNazivAplikacije(){
@@ -63,7 +59,6 @@ public class Pomocno {
         }
            
     }
->>>>>>> Stashed changes
     
      private static DecimalFormat df(){
         NumberFormat nf = NumberFormat.
@@ -98,12 +93,71 @@ public class Pomocno {
         d2.setTelefon("099-8355399");
         d2.setEmail("esoros@gmail.com");
         
-               Session s = HibernateUtil.getSessionFactory().openSession();
+        Usluga u = new Usluga();
+        u.setNaziv("Muško šišanje bez frizure");
+        u.setCijena(new BigDecimal(45));
+        u.setKolicina(1);
+        
+        Usluga u2 = new Usluga();
+        u2.setNaziv("Muško šišanje sa frizurom");
+        u2.setCijena(new BigDecimal(65));
+        u2.setKolicina(1);
+        
+        Usluga u3 = new Usluga();
+        u3.setNaziv("Žensko šišanje");
+        u3.setCijena(new BigDecimal(100));
+        u3.setKolicina(1);
+        
+        Usluga u4 = new Usluga();
+        u4.setNaziv("Bojanje kose");
+        u4.setCijena(new BigDecimal(170));
+        u4.setKolicina(1);
+        
+        Usluga u5 = new Usluga();
+        u5.setNaziv("Pramenovi");
+        u5.setCijena(new BigDecimal(250));
+        u5.setKolicina(1);
+        
+        Posjet p = new Posjet();
+        p.setDatum(new Date());
+        p.setDjelatnik(d);
+        p.setKlijent(k);
+        
+        Posjet p2 = new Posjet();
+        p.setDatum(new Date());
+        p.setDjelatnik(d2);
+        p.setKlijent(k2);
+        
+        
+        PosjetUsluga pu = new PosjetUsluga();
+        pu.setPosjet(p);
+        pu.setUsluga(u);
+        
+        Administrator a = new Administrator();
+        a.setIme("Marko");
+        a.setPrezime("Marić");
+        a.setTelefon("099-1618555");
+        a.setEmail("mmaric@gmail.com");
+        
+        
+        
+        
+        Session s = HibernateUtil.getSessionFactory().openSession();
         s.beginTransaction();
         s.save(d);
         s.save(d2);
         s.save(k);
         s.save(k2);
+        s.save(u);
+        s.save(u2);
+        s.save(u3);
+        s.save(u4);
+        s.save(u5);
+        s.save(p);
+        s.save(pu);
+        s.save(a);
+        
+        
         s.getTransaction().commit();
         s.close();
         HibernateUtil.shutdown();

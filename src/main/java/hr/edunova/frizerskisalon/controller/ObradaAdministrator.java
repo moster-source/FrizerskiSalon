@@ -5,7 +5,8 @@
  */
 package hr.edunova.frizerskisalon.controller;
 
-import hr.edunova.frizerskisalon.model.Klijent;
+import hr.edunova.frizerskisalon.model.Administrator;
+import hr.edunova.frizerskisalon.model.Djelatnik;
 import hr.edunova.frizerskisalon.util.EdunovaException;
 import java.util.List;
 
@@ -13,13 +14,12 @@ import java.util.List;
  *
  * @author krpa
  */
-public class ObradaKlijent extends Obrada<Klijent> {
-    
-    public ObradaKlijent(Klijent entitet) {
+public class ObradaAdministrator extends Obrada<Administrator> {
+     public ObradaAdministrator(Administrator entitet) {
         super(entitet);
     }
     
-    public ObradaKlijent() {
+    public ObradaAdministrator() {
         super();
     }
 
@@ -39,23 +39,14 @@ public class ObradaKlijent extends Obrada<Klijent> {
     }
 
     @Override
-    public List<Klijent> getPodaci() {
-       return session.createQuery("from Klijent").list();
+    public List<Administrator> getPodaci() {
+       return session.createQuery("from Administrator").list();
          
-    }
-    
-        public List<Klijent> getPodaci(String uvjet){
-        return session.createQuery("from Klijent p "
-                + " where concat(p.ime, ' ', p.prezime) like :uvjet "
-                + " or concat(p.prezime, ' ', p.ime) like :uvjet ")
-                .setParameter("uvjet", "%" + uvjet + "%")
-                .setMaxResults(20).list();
     }
 
     @Override
     protected void nakonSpremanja() throws EdunovaException {
        
     }
-    
     
 }

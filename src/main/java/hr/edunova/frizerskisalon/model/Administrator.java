@@ -5,7 +5,6 @@
  */
 package hr.edunova.frizerskisalon.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -14,19 +13,15 @@ import javax.persistence.Table;
  * @author krpa
  */
 @Entity
-@Table(name = "djelatnik")
-public class Djelatnik extends Entitet{
-    
-   
+@Table(name="administrator")
+public class Administrator extends Entitet {
+
     private String ime;
     private String prezime;
-    private String telefon;
     private String email;
-    private String oib;
-    private String iban;
-    
-    
-        public String getIme() {
+    private String telefon;
+
+    public String getIme() {
         return ime;
     }
 
@@ -42,14 +37,6 @@ public class Djelatnik extends Entitet{
         this.prezime = prezime;
     }
 
-    public String getTelefon() {
-        return telefon;
-    }
-
-    public void setTelefon(String telefon) {
-        this.telefon = telefon;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -58,25 +45,13 @@ public class Djelatnik extends Entitet{
         this.email = email;
     }
 
-    public String getOib() {
-        return oib;
+    public String getTelefon() {
+        return telefon;
     }
 
-    public void setOib(String oib) {
-        this.oib = oib;
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
     }
-
-    public String getIban() {
-        return iban;
-    }
-
-    public void setIban(String iban) {
-        this.iban = iban;
-    }
-    
-    
-    
-    
     
     
 }

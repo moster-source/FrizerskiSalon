@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\model\Entitet.java
-=======
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\controller\ObradaPosjet.java
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\controller\Obrada.java
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\view\ViewDjelatnik.java
@@ -9,15 +6,8 @@ E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\util\Pomocno.java
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\Start.java
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\controller\ObradaPosjetUsluga.java
->>>>>>> Stashed changes
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\model\Usluga.java
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\model\Djelatnik.java
-<<<<<<< Updated upstream
-E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\model\PosjetUsluga.java
-E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\model\Posjet.java
-E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\model\Klijent.java
-E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\Start.java
-=======
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\view\ViewPosjet.java
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\view\ViewUsluga.java
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\controller\ObradaDjelatnik.java
@@ -33,4 +23,3 @@ E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\model\PosjetUsluga.java
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\model\Klijent.java
 E:\java\NetBeansProjects\FrizerskiSalon\src\main\java\hr\edunova\frizerskisalon\view\SplashScreen.java
->>>>>>> Stashed changes
