@@ -5,7 +5,8 @@
  */
 package hr.edunova.frizerskisalon.controller;
 
-import hr.edunova.frizerskisalon.model.Klijent;
+import hr.edunova.frizerskisalon.model.Posjet;
+import hr.edunova.frizerskisalon.model.Usluga;
 import hr.edunova.frizerskisalon.util.EdunovaException;
 import java.util.List;
 
@@ -13,19 +14,18 @@ import java.util.List;
  *
  * @author krpa
  */
-public class ObradaKlijent extends Obrada<Klijent> {
-    
-    public ObradaKlijent(Klijent entitet) {
+public class ObradaUsluga extends Obrada<Usluga> {
+     public ObradaUsluga(Usluga entitet) {
         super(entitet);
     }
     
-    public ObradaKlijent() {
+    public ObradaUsluga() {
         super();
     }
 
     @Override
     protected void kontrolaCreate() throws EdunovaException {
-     
+    //super.kontrolaCreate();
     }
 
     @Override
@@ -39,15 +39,13 @@ public class ObradaKlijent extends Obrada<Klijent> {
     }
 
     @Override
-    public List<Klijent> getPodaci() {
-       return session.createQuery("from Klijent").list();
+    public List<Usluga> getPodaci() {
+       return session.createQuery("from Usluga").list();
          
     }
-    
-        public List<Klijent> getPodaci(String uvjet){
-        return session.createQuery("from Klijent p "
-                + " where concat(p.ime, ' ', p.prezime) like :uvjet "
-                + " or concat(p.prezime, ' ', p.ime) like :uvjet ")
+     public List<Usluga> getPodaci(String uvjet){
+        return session.createQuery("from Usluga p "
+                + " where (p.naziv) like :uvjet ")
                 .setParameter("uvjet", "%" + uvjet + "%")
                 .setMaxResults(20).list();
     }

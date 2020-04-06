@@ -7,6 +7,18 @@ package hr.edunova.frizerskisalon.util;
 
 import hr.edunova.frizerskisalon.model.Djelatnik;
 import hr.edunova.frizerskisalon.model.Klijent;
+<<<<<<< Updated upstream
+=======
+import hr.edunova.frizerskisalon.model.Posjet;
+import hr.edunova.frizerskisalon.model.PosjetUsluga;
+import hr.edunova.frizerskisalon.model.Usluga;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.Locale;
+>>>>>>> Stashed changes
 import org.hibernate.Session;
 
 /**
@@ -15,7 +27,51 @@ import org.hibernate.Session;
  */
 public class Pomocno {
     
+<<<<<<< Updated upstream
+=======
+    private final static DecimalFormat df = df();
     
+       public static String getNazivAplikacije(){
+        return "Frizerski Salon";
+    }
+       
+       public static String getFormatDecimalniBroj(BigDecimal b){
+       
+        return df.format(b);
+    }
+    
+    public static int getCijeliBrojIzStringa(String s){
+         try {
+            return Integer.parseInt(s);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+    public static String getBrojString(int i){
+        try {
+            return String.valueOf(i);
+        } catch (Exception e) {
+            return "1";
+        }
+    }
+    
+       public static BigDecimal getDecimalniBrojIzStringa(String s){
+        try {
+            return new BigDecimal(df.parse(s).doubleValue());
+        } catch (Exception e) {
+            return BigDecimal.ZERO;
+        }
+           
+    }
+>>>>>>> Stashed changes
+    
+     private static DecimalFormat df(){
+        NumberFormat nf = NumberFormat.
+                getNumberInstance(new Locale("hr","HR"));
+         DecimalFormat dfl = (DecimalFormat) nf;
+         dfl.applyPattern("#,###.00");
+    return dfl;
+    }
     public static void pocetniInsert(){
         HibernateUtil.getSessionFactory().openSession();
         Klijent k = new Klijent();
@@ -53,10 +109,7 @@ public class Pomocno {
         HibernateUtil.shutdown();
         
         
-        
-        
-        
-    
+            
     }
     
 }
