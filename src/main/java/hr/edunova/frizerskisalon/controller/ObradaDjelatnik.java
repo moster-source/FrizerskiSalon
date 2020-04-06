@@ -43,6 +43,14 @@ public class ObradaDjelatnik extends Obrada<Djelatnik> {
        return session.createQuery("from Djelatnik").list();
          
     }
+    
+    public List<Djelatnik> getPodaci(String uvjet){
+        return session.createQuery("from Djelatnik p "
+                + " where concat(p.ime, ' ', p.prezime) like :uvjet "
+                + " or concat(p.prezime, ' ', p.ime) like :uvjet ")
+                .setParameter("uvjet", "%" + uvjet + "%")
+                .setMaxResults(20).list();
+    }
 
     @Override
     protected void nakonSpremanja() throws EdunovaException {
