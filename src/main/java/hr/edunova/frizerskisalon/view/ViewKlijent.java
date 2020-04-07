@@ -26,6 +26,7 @@ public class ViewKlijent extends javax.swing.JFrame {
     public ViewKlijent() {
         initComponents();
         obrada=new ObradaKlijent();
+        ucitaj();
     }
     
     private void ucitaj() {

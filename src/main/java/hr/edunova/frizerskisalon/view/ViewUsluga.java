@@ -26,6 +26,7 @@ public class ViewUsluga extends javax.swing.JFrame {
     public ViewUsluga() {
         initComponents();
         obrada=new ObradaUsluga();
+        ucitaj();
     }
     
     private void ucitaj() {
@@ -50,7 +51,6 @@ public class ViewUsluga extends javax.swing.JFrame {
         //txtKolicina.setText(obrada.getEntitet().getKolicina());
         txtKolicina.setText(Pomocno.getBrojString(obrada.getEntitet().getKolicina()));
     
-        
     }
 
     /**

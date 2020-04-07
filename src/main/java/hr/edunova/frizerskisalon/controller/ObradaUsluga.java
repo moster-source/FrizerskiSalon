@@ -15,6 +15,7 @@ import java.util.List;
  * @author krpa
  */
 public class ObradaUsluga extends Obrada<Usluga> {
+    
      public ObradaUsluga(Usluga entitet) {
         super(entitet);
     }

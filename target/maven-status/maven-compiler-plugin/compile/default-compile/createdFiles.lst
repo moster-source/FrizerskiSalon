@@ -5,10 +5,12 @@ hr\edunova\frizerskisalon\util\Pomocno.class
 hr\edunova\frizerskisalon\view\ViewUsluga$2.class
 hr\edunova\frizerskisalon\view\ViewKlijent$6.class
 hr\edunova\frizerskisalon\controller\ObradaPosjetUsluga.class
+hr\edunova\frizerskisalon\view\ViewPosjet$6.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik$6.class
 hr\edunova\frizerskisalon\view\SplashScreen.class
 hr\edunova\frizerskisalon\controller\ObradaKlijent.class
 hr\edunova\frizerskisalon\view\ViewUsluga$5.class
+hr\edunova\frizerskisalon\view\ViewPosjet$3.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik$3.class
 hr\edunova\frizerskisalon\view\ViewKlijent$5.class
 hr\edunova\frizerskisalon\util\HibernateUtil.class
@@ -20,6 +22,7 @@ hr\edunova\frizerskisalon\model\Djelatnik.class
 hr\edunova\frizerskisalon\controller\ObradaDjelatnik.class
 hr\edunova\frizerskisalon\view\ViewKlijent$4.class
 hr\edunova\frizerskisalon\view\ViewUsluga$4.class
+hr\edunova\frizerskisalon\view\ViewPosjet$4.class
 hr\edunova\frizerskisalon\model\PosjetUsluga.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik$2.class
 hr\edunova\frizerskisalon\model\Klijent.class
@@ -28,5 +31,7 @@ hr\edunova\frizerskisalon\model\Posjet.class
 hr\edunova\frizerskisalon\view\ViewKlijent$3.class
 hr\edunova\frizerskisalon\model\Entitet.class
 hr\edunova\frizerskisalon\controller\Obrada.class
+hr\edunova\frizerskisalon\view\ViewPosjet$2.class
 hr\edunova\frizerskisalon\controller\ObradaPosjet.class
+hr\edunova\frizerskisalon\view\ViewPosjet$5.class
 hr\edunova\frizerskisalon\view\ViewUsluga$3.class

@@ -7,6 +7,7 @@ package hr.edunova.frizerskisalon.controller;
 
 import hr.edunova.frizerskisalon.model.Posjet;
 import hr.edunova.frizerskisalon.util.EdunovaException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,6 +44,18 @@ public class ObradaPosjet extends Obrada<Posjet> {
        return session.createQuery("from Posjet").list();
          
     }
+//     public List<Posjet> getPodaci(String uvjet){
+//        return session.createQuery("from Posjet p "
+//                + " where (p.datum) like :uvjet ")
+//                .setParameter("uvjet", "%" + uvjet + "%")
+//                .setMaxResults(20).list();
+//    }
+         public List<Posjet> getPodaci(Date uvjet){
+       return session.createQuery("from Posjet p").setMaxResults(100).list();
+                //.setParameter("uvjet", "%" + uvjet + "%")
+                //.setMaxResults(20).list();
+    }
+        
 
     @Override
     protected void nakonSpremanja() throws EdunovaException {

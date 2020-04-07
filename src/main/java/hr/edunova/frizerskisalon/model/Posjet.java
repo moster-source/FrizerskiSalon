@@ -57,7 +57,10 @@ public class Posjet extends Entitet{
     }
 
     
-    
+    @Override
+    public String toString() {
+        return String.valueOf(datum);
+    }
     
     
     
