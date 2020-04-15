@@ -19,7 +19,7 @@ public class Start {
     
     public Start(){
         
-        //Pomocno.pocetniInsert();
+       //Pomocno.pocetniInsert();
         new SplashScreen().setVisible(true);
         
         //HibernateUtil.getSessionFactory().openSession();

@@ -29,14 +29,13 @@ public class Klijent extends Entitet {
     @Column(name = "email")
     private String email;
 
-    
-    
-    
+ 
     
     public String getIme() {
         return ime;
     }
 
+    
     public void setIme(String ime) {
         this.ime = ime;
     }

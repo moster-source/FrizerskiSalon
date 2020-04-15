@@ -44,13 +44,11 @@
         
         
         
-        
         <!-- Ovdje navodimo naše mapirane klase -->
         <mapping class="hr.edunova.frizerskisalon.model.Djelatnik" />
         <mapping class="hr.edunova.frizerskisalon.model.Klijent" />
-        <mapping class="hr.edunova.frizerskisalon.model.Posjet" />
         <mapping class="hr.edunova.frizerskisalon.model.Usluga" />
-        <mapping class="hr.edunova.frizerskisalon.model.PosjetUsluga" />
+        <mapping class="hr.edunova.frizerskisalon.model.Posjet" />
         <mapping class="hr.edunova.frizerskisalon.model.Administrator" />
         
         

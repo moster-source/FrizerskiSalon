@@ -5,11 +5,15 @@
  */
 package hr.edunova.frizerskisalon.model;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
-import javax.persistence.Column;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 /**
  *
@@ -21,23 +25,26 @@ public class Posjet extends Entitet{
     
     //@Column(name = "usluga_sifra")
     //private Integer usluga_sifra;
-    
+    @OneToMany(mappedBy = "posjet")
+    private List<Usluga> usluge = new ArrayList<>();
+
     @ManyToOne
     private Klijent klijent;
     
     @ManyToOne
     private Djelatnik djelatnik;
-    
-    @Column(name = "datum")
-    private Date datum;
 
+    private Date datum;
     
-    public Date getDatum() {
-        return datum;
+    private BigDecimal cijenaUkupno;
+    
+    
+    public List<Usluga> getUsluge() {
+        return usluge;
     }
 
-    public void setDatum(Date datum) {
-        this.datum = datum;
+    public void setUsluge(List<Usluga> usluge) {
+        this.usluge = usluge;
     }
 
     public Klijent getKlijent() {
@@ -49,14 +56,31 @@ public class Posjet extends Entitet{
     }
 
     public Djelatnik getDjelatnik() {
-        return djelatnik;
-    }
+       return djelatnik;
+   }
 
-    public void setDjelatnik(Djelatnik djelatnik) {
+   public void setDjelatnik(Djelatnik djelatnik) {
         this.djelatnik = djelatnik;
     }
 
     
+    public Date getDatum() {
+        return datum;
+    }
+
+    public void setDatum(Date datum) {
+        this.datum = datum;
+    }
+
+    public BigDecimal getCijenaUkupno() {
+        return cijenaUkupno;
+    }
+
+    public void setCijenaUkupno(BigDecimal cijenaUkupno) {
+        this.cijenaUkupno = cijenaUkupno;
+    }
+
+   
     @Override
     public String toString() {
         return String.valueOf(datum);

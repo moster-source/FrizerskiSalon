@@ -5,7 +5,6 @@
  */
 package hr.edunova.frizerskisalon.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -24,7 +23,8 @@ public class Djelatnik extends Entitet{
     private String email;
     private String oib;
     private String iban;
-    
+  
+       
     
         public String getIme() {
         return ime;

@@ -9,7 +9,6 @@ hr\edunova\frizerskisalon\view\ViewUsluga$2.class
 hr\edunova\frizerskisalon\view\Izbornik$Vrijeme.class
 hr\edunova\frizerskisalon\view\ViewPosjet$1.class
 hr\edunova\frizerskisalon\view\ViewKlijent$6.class
-hr\edunova\frizerskisalon\controller\ObradaPosjetUsluga.class
 hr\edunova\frizerskisalon\view\Izbornik.class
 hr\edunova\frizerskisalon\view\ViewPosjet$6.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik$6.class
@@ -37,7 +36,6 @@ hr\edunova\frizerskisalon\view\ViewKlijent$4.class
 hr\edunova\frizerskisalon\view\ViewUsluga$4.class
 hr\edunova\frizerskisalon\view\Izbornik$6.class
 hr\edunova\frizerskisalon\view\ViewPosjet$4.class
-hr\edunova\frizerskisalon\model\PosjetUsluga.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik$2.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik.class
 hr\edunova\frizerskisalon\model\Administrator.class

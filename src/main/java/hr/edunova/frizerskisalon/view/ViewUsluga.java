@@ -40,7 +40,7 @@ public class ViewUsluga extends javax.swing.JFrame {
         //obrada.getEntitet().setCijena(txtCijena.getText());
         obrada.getEntitet().setCijena(Pomocno.getDecimalniBrojIzStringa(txtCijena.getText()));
         //obrada.getEntitet().setKolicina(txtKolicina.getText());
-        obrada.getEntitet().setKolicina(Pomocno.getCijeliBrojIzStringa(txtKolicina.getText()));
+        
        
         }
         
@@ -49,7 +49,7 @@ public class ViewUsluga extends javax.swing.JFrame {
         //txtCijena.setText(obrada.getEntitet().getCijena());
         txtCijena.setText(Pomocno.getFormatDecimalniBroj(obrada.getEntitet().getCijena()));
         //txtKolicina.setText(obrada.getEntitet().getKolicina());
-        txtKolicina.setText(Pomocno.getBrojString(obrada.getEntitet().getKolicina()));
+        
     
     }
 

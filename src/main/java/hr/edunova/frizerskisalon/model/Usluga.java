@@ -7,6 +7,7 @@ package hr.edunova.frizerskisalon.model;
 
 import java.math.BigDecimal;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -19,15 +20,10 @@ public class Usluga extends Entitet{
     
     private String naziv;
     private BigDecimal cijena;
-    private Integer kolicina;
-
-    public Integer getKolicina() {
-        return kolicina;
-    }
-
-    public void setKolicina(Integer kolicina) {
-        this.kolicina = kolicina;
-    }
+   
+    
+   @ManyToOne
+   private Posjet posjet;
 
     public String getNaziv() {
         return naziv;
@@ -44,6 +40,10 @@ public class Usluga extends Entitet{
     public void setCijena(BigDecimal cijena) {
         this.cijena = cijena;
     }
+
+   
+    
+  
 
     @Override
     public String toString() {
