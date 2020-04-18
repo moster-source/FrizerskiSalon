@@ -14,7 +14,6 @@ hr\edunova\frizerskisalon\view\ViewPosjet$6.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik$6.class
 hr\edunova\frizerskisalon\view\SplashScreen.class
 hr\edunova\frizerskisalon\controller\ObradaKlijent.class
-hr\edunova\frizerskisalon\view\ViewAdministrator.class
 hr\edunova\frizerskisalon\view\ViewKlijent.class
 hr\edunova\frizerskisalon\view\ViewUsluga$5.class
 hr\edunova\frizerskisalon\view\ViewPosjet$3.class
@@ -28,17 +27,15 @@ hr\edunova\frizerskisalon\view\Izbornik$2.class
 hr\edunova\frizerskisalon\view\ViewUsluga$1.class
 hr\edunova\frizerskisalon\view\Izbornik$3.class
 hr\edunova\frizerskisalon\controller\ObradaUsluga.class
-hr\edunova\frizerskisalon\controller\ObradaAdministrator.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik$5.class
 hr\edunova\frizerskisalon\model\Djelatnik.class
 hr\edunova\frizerskisalon\controller\ObradaDjelatnik.class
+hr\edunova\frizerskisalon\view\ViewPosjet$7.class
 hr\edunova\frizerskisalon\view\ViewKlijent$4.class
 hr\edunova\frizerskisalon\view\ViewUsluga$4.class
-hr\edunova\frizerskisalon\view\Izbornik$6.class
 hr\edunova\frizerskisalon\view\ViewPosjet$4.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik$2.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik.class
-hr\edunova\frizerskisalon\model\Administrator.class
 hr\edunova\frizerskisalon\model\Klijent.class
 hr\edunova\frizerskisalon\Start.class
 hr\edunova\frizerskisalon\view\ViewKlijent$1.class

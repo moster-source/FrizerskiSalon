@@ -7,7 +7,6 @@ package hr.edunova.frizerskisalon.controller;
 
 import hr.edunova.frizerskisalon.model.Posjet;
 import hr.edunova.frizerskisalon.util.EdunovaException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,25 +16,25 @@ import java.util.List;
  */
 public class ObradaPosjet extends Obrada<Posjet> {
     
-    
     public ObradaPosjet(Posjet entitet) {
         super(entitet);
     }
-
+    
     public ObradaPosjet() {
         super();
+        
     }
-    
+
     @Override
-    public Posjet create() throws EdunovaException{
+    protected void kontrolaCreate() throws EdunovaException {
         kontrolaCreate();
         save();
         nakonSpremanja();
         return entitet;
     }
-    
+
     @Override
-    public Posjet update() throws EdunovaException{
+    protected void kontrolaUpdate() throws EdunovaException {
         kontrolaUpdate();
         save();
         nakonSpremanja();
@@ -43,31 +42,45 @@ public class ObradaPosjet extends Obrada<Posjet> {
         return entitet;
     }
     
-     private void save() {
+    private void save() {
         session.beginTransaction();
         session.save(entitet);
-         entitet.getUsluge().forEach((c)->{
+         entitet.getClanovi().forEach((c)->{
             session.save(c);
         });
         session.getTransaction().commit();
-        
-    }
-    
-    public void ocistiUsluge(){
-        session.beginTransaction();
-        entitet.getUsluge().forEach((c)->{
-            session.delete(c);
-        });
-        
-         session.getTransaction().commit();
-        entitet.setUsluge(new ArrayList<>());
     }
 
+   
+
+    @Override
+    public List<Posjet> getPodaci() {
+       return session.createQuery("from Posjet").list();
+         
+    }
+//     public List<Posjet> getPodaci(String uvjet){
+//        return session.createQuery("from Posjet p "
+//                + " where (p.datum) like :uvjet ")
+//                .setParameter("uvjet", "%" + uvjet + "%")
+//                .setMaxResults(20).list();
+//    }
+         public List<Posjet> getPodaci(Date uvjet){
+       return session.createQuery("from Posjet p").setMaxResults(100).list();
+                //.setParameter("uvjet", "%" + uvjet + "%")
+                //.setMaxResults(20).list();
+    }
+        
+
+    @Override
+    protected void nakonSpremanja() throws EdunovaException {
+       
+    }
+    
     @Override
     protected void kontrolaCreate() throws EdunovaException {
         
     }
-
+    
     @Override
     protected void kontrolaUpdate() throws EdunovaException {
         
@@ -75,17 +88,6 @@ public class ObradaPosjet extends Obrada<Posjet> {
 
     @Override
     protected void kontrolaDelete() throws EdunovaException {
-        ocistiUsluge();
+        //ocistiClanove();
     }
-
-    @Override
-    public List<Posjet> getPodaci() {
-         return session.createQuery("from Posjet").list();
-    }
-
-    @Override
-    protected void nakonSpremanja() throws EdunovaException {
-       
-    }
-
 }

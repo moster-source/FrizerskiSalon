@@ -64,7 +64,6 @@ public class Izbornik extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        chkMenuAdmin = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,14 +118,6 @@ public class Izbornik extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem5);
 
-        chkMenuAdmin.setText("Administrator");
-        chkMenuAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkMenuAdminActionPerformed(evt);
-            }
-        });
-        jMenu2.add(chkMenuAdmin);
-
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -170,17 +161,12 @@ public class Izbornik extends javax.swing.JFrame {
        new ViewUsluga().setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void chkMenuAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkMenuAdminActionPerformed
-        new ViewAdministrator().setVisible(true);
-    }//GEN-LAST:event_chkMenuAdminActionPerformed
-
     /**
      * @param args the command line arguments
      */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem chkMenuAdmin;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

@@ -49,7 +49,7 @@
         <mapping class="hr.edunova.frizerskisalon.model.Klijent" />
         <mapping class="hr.edunova.frizerskisalon.model.Usluga" />
         <mapping class="hr.edunova.frizerskisalon.model.Posjet" />
-        <mapping class="hr.edunova.frizerskisalon.model.Administrator" />
+        
         
         
     </session-factory>

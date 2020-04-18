@@ -57,5 +57,4 @@ public class ObradaKlijent extends Obrada<Klijent> {
        
     }
     
-    
 }

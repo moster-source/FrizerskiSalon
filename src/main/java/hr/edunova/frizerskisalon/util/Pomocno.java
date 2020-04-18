@@ -5,21 +5,14 @@
  */
 package hr.edunova.frizerskisalon.util;
 
-import hr.edunova.frizerskisalon.model.Administrator;
 import hr.edunova.frizerskisalon.model.Djelatnik;
 import hr.edunova.frizerskisalon.model.Klijent;
-import hr.edunova.frizerskisalon.model.Posjet;
 
 import hr.edunova.frizerskisalon.model.Usluga;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Locale;
-import javax.swing.DefaultListModel;
 import org.hibernate.Session;
 
 /**
@@ -114,6 +107,7 @@ public class Pomocno {
         u.setNaziv("Muško šišanje bez frizure");
         u.setCijena(new BigDecimal(45));
         
+        
        
         Usluga u2 = new Usluga();
         u2.setNaziv("Muško šišanje sa frizurom");
@@ -140,7 +134,7 @@ public class Pomocno {
         u5.setCijena(new BigDecimal(250));
        
         
-
+/*
        Posjet p = new Posjet();
        p.setDatum(new Date());
        p.setDjelatnik(d);
@@ -150,13 +144,13 @@ public class Pomocno {
        m.add(1, u2);
        p.setUsluge(m);
        
+        */
         
-        
-        Administrator a = new Administrator();
-        a.setIme("Marko");
-        a.setPrezime("Marić");
-        a.setTelefon("099-1618555");
-        a.setEmail("mmaric@gmail.com");
+       // Administrator a = new Administrator();
+        //a.setIme("Marko");
+        //a.setPrezime("Marić");
+        //a.setTelefon("099-1618555");
+        //a.setEmail("mmaric@gmail.com");
         
                
         Session s = HibernateUtil.getSessionFactory().openSession();
@@ -175,8 +169,8 @@ public class Pomocno {
         s.save(u7);
         //s.save(p);
         
-        s.save(a);
-        s.save(p);
+        //s.save(a);
+        //s.save(p);
         
         s.getTransaction().commit();
         s.close();

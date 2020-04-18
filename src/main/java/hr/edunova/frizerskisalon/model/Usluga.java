@@ -22,8 +22,6 @@ public class Usluga extends Entitet{
     private BigDecimal cijena;
    
     
-   @ManyToOne
-   private Posjet posjet;
 
     public String getNaziv() {
         return naziv;
@@ -42,9 +40,6 @@ public class Usluga extends Entitet{
     }
 
    
-    
-  
-
     @Override
     public String toString() {
         return naziv;

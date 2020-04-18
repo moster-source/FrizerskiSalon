@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -25,7 +25,7 @@ public class Posjet extends Entitet{
     
     //@Column(name = "usluga_sifra")
     //private Integer usluga_sifra;
-    @OneToMany(mappedBy = "posjet")
+    @ManyToMany
     private List<Usluga> usluge = new ArrayList<>();
 
     @ManyToOne

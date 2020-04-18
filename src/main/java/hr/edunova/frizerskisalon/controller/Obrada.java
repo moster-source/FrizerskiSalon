@@ -5,10 +5,7 @@
  */
 package hr.edunova.frizerskisalon.controller;
 
-import hr.edunova.frizerskisalon.model.Entitet;
 import hr.edunova.frizerskisalon.util.EdunovaException;
-import java.util.List;
-import org.hibernate.Session;
 import hr.edunova.frizerskisalon.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
