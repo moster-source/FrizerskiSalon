@@ -23,8 +23,6 @@ import javax.persistence.Table;
 @Table(name = "posjet")
 public class Posjet extends Entitet{
     
-    //@Column(name = "usluga_sifra")
-    //private Integer usluga_sifra;
     @ManyToMany
     private List<Usluga> usluge = new ArrayList<>();
 
@@ -80,13 +78,10 @@ public class Posjet extends Entitet{
         this.cijenaUkupno = cijenaUkupno;
     }
 
-   
     @Override
     public String toString() {
         return String.valueOf(datum);
     }
-    
-    
     
     
 }

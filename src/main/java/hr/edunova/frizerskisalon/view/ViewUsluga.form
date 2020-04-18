@@ -39,10 +39,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="txtNaziv" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel2" alignment="0" pref="162" max="32767" attributes="0"/>
-                          <Component id="txtKolicina" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtCijena" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel1" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
@@ -70,7 +68,7 @@
                   <Component id="btnTrazi" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jScrollPane1" min="-2" pref="229" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -80,16 +78,12 @@
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtCijena" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtKolicina" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnDodajNovi" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnPromijeni" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnObrisi" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -148,13 +142,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCijena">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Koli&#x10d;ina"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtKolicina">
     </Component>
     <Component class="javax.swing.JButton" name="btnDodajNovi">
       <Properties>

@@ -1,5 +1,6 @@
 hr\edunova\frizerskisalon\view\ViewUsluga$6.class
 hr\edunova\frizerskisalon\view\Izbornik$5.class
+hr\edunova\frizerskisalon\view\ViewPosjet$9.class
 hr\edunova\frizerskisalon\view\ViewPosjet.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik$4.class
 hr\edunova\frizerskisalon\util\EdunovaException.class
@@ -43,6 +44,7 @@ hr\edunova\frizerskisalon\view\ViewUsluga.class
 hr\edunova\frizerskisalon\model\Posjet.class
 hr\edunova\frizerskisalon\view\Izbornik$4.class
 hr\edunova\frizerskisalon\view\ViewKlijent$3.class
+hr\edunova\frizerskisalon\view\ViewPosjet$8.class
 hr\edunova\frizerskisalon\model\Entitet.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik$1.class
 hr\edunova\frizerskisalon\controller\Obrada.class

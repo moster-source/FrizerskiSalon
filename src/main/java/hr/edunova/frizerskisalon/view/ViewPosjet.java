@@ -14,6 +14,7 @@ import hr.edunova.frizerskisalon.model.Klijent;
 import hr.edunova.frizerskisalon.model.Posjet;
 import hr.edunova.frizerskisalon.model.Usluga;
 import hr.edunova.frizerskisalon.util.EdunovaException;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -179,6 +180,7 @@ private final ObradaPosjet obrada;
         jLabel7 = new javax.swing.JLabel();
         lblCijena1Usluge = new javax.swing.JLabel();
         btnPromijeni = new javax.swing.JButton();
+        lblCijenaSvihUsluga = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -235,13 +237,23 @@ private final ObradaPosjet obrada;
                 lstUslugePosjetMouseClicked(evt);
             }
         });
+        lstUslugePosjet.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                lstUslugePosjetPropertyChange(evt);
+            }
+        });
+        lstUslugePosjet.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstUslugePosjetValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(lstUslugePosjet);
 
         jLabel7.setText("Usluge na posjetu");
 
         lblCijena1Usluge.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCijena1Usluge.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblCijena1Usluge.setText("0,0 kuna");
+        lblCijena1Usluge.setText("0,0 kn");
 
         btnPromijeni.setText("Promijeni");
         btnPromijeni.addActionListener(new java.awt.event.ActionListener() {
@@ -249,6 +261,10 @@ private final ObradaPosjet obrada;
                 btnPromijeniActionPerformed(evt);
             }
         });
+
+        lblCijenaSvihUsluga.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblCijenaSvihUsluga.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCijenaSvihUsluga.setText("0,0 kn");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -268,21 +284,24 @@ private final ObradaPosjet obrada;
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane2)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane4)
-                        .addComponent(btnObrisiPosjetu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cmbDjelatnici, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cmbKlijenti, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCijenaSvihUsluga, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnObrisiPosjetu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cmbDjelatnici, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cmbKlijenti, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(lblCijena1Usluge, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCijena1Usluge, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -304,16 +323,19 @@ private final ObradaPosjet obrada;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmbKlijenti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7)
-                        .addGap(6, 6, 6)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(lblCijena1Usluge))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(6, 6, 6)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(lblCijena1Usluge))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCijenaSvihUsluga))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDodajNovuPosjetu)
@@ -401,27 +423,24 @@ private final ObradaPosjet obrada;
               } 
             } catch (Exception e) {
             }
-             
-                      
-            Usluga c = new Usluga();
-            c.setSifra(p.getSifra());
-            //c.(obrada.getEntitet());
             
-            DefaultListModel<Usluga> m;
             
+            
+             DefaultListModel<Usluga> m;
             try {
-                m= (DefaultListModel<Usluga>) lstUslugePosjet.getModel();
+                m = (DefaultListModel<Usluga>) lstUslugePosjet.getModel();
             } catch (Exception e) {
                 m = new DefaultListModel<>();
                 lstUslugePosjet.setModel(m);
             }
             
-            m.addElement(c);
+            m.addElement(p);
             lstUslugePosjet.repaint();
             
             
             
         }
+                postaviCijenuSvihSelektiranihUsluga();
     }//GEN-LAST:event_lstUslugeMouseClicked
 
     private void PostaviCijenuUsluge(){
@@ -429,7 +448,7 @@ private final ObradaPosjet obrada;
         try {
             int p = lstUsluge.getSelectedIndex();
             Usluga u = lstUsluge.getModel().getElementAt(p);
-            lblCijena1Usluge.setText(u.getCijena().toString());
+            lblCijena1Usluge.setText(u.getCijena().toString().concat(" kn"));
         } catch (Exception e) {
         }
         
@@ -444,10 +463,22 @@ private final ObradaPosjet obrada;
             m.remove(index);
             
             lstUslugePosjet.repaint();
+            postaviCijenuSvihSelektiranihUsluga();
             
         }        
         
     }//GEN-LAST:event_lstUslugePosjetMouseClicked
+
+    private void lstUslugePosjetValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstUslugePosjetValueChanged
+            
+        postaviCijenuSvihSelektiranihUsluga();
+     
+                
+    }//GEN-LAST:event_lstUslugePosjetValueChanged
+
+    private void lstUslugePosjetPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_lstUslugePosjetPropertyChange
+        
+    }//GEN-LAST:event_lstUslugePosjetPropertyChange
 
     /**
      * @param args the command line arguments
@@ -471,10 +502,35 @@ private final ObradaPosjet obrada;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lblCijena1Usluge;
+    private javax.swing.JLabel lblCijenaSvihUsluga;
     private javax.swing.JList<Posjet> lstPodaci;
     private javax.swing.JList<Usluga> lstUsluge;
     private javax.swing.JList<Usluga> lstUslugePosjet;
     // End of variables declaration//GEN-END:variables
+
+    private void postaviCijenuSvihSelektiranihUsluga() {
+     Usluga u = new Usluga();
+        BigDecimal b = BigDecimal.ZERO;
+        try {
+            DefaultListModel<Usluga> m = (DefaultListModel<Usluga>) lstUslugePosjet.getModel();
+            int x = m.getSize();
+            for (int i = 0; i < x; i++) {
+            u = m.get(i);
+            b = b.add(u.getCijena());
+            
+        }
+            lblCijenaSvihUsluga.setText(b.toString().concat(" kn"));
+        } catch (Exception e) {
+            
+           lblCijenaSvihUsluga.setText("0,00 kn");
+        }
+        
+        
+        
+       
+       
+        
+    }
 
     
 }
