@@ -46,7 +46,7 @@ public class ObradaPosjet extends Obrada<Posjet> {
      private void save() {
         session.beginTransaction();
         session.save(entitet);
-         entitet.getUsluge().forEach((c)->{
+         entitet.getPosjetusluge().forEach((c)->{
             session.save(c);
         });
         session.getTransaction().commit();
@@ -55,12 +55,13 @@ public class ObradaPosjet extends Obrada<Posjet> {
     
     public void ocistiUsluge(){
         session.beginTransaction();
-        entitet.getUsluge().forEach((c)->{
+        entitet.getPosjetusluge().forEach((c)->{
             session.delete(c);
         });
         
          session.getTransaction().commit();
-        entitet.setUsluge(new ArrayList<>());
+         entitet.setPosjetusluge(new ArrayList<>());
+        //entitet.getPosjetusluge(new ArrayList<>());
     }
 
     @Override

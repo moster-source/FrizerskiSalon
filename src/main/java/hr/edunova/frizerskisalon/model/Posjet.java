@@ -12,6 +12,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -23,8 +24,8 @@ import javax.persistence.Table;
 @Table(name = "posjet")
 public class Posjet extends Entitet{
     
-    @ManyToMany
-    private List<Usluga> usluge = new ArrayList<>();
+    @OneToMany(mappedBy = "posjet")
+    private List<PosjetUsluga> posjetusluge = new ArrayList<>();
 
     @ManyToOne
     private Klijent klijent;
@@ -32,17 +33,12 @@ public class Posjet extends Entitet{
     @ManyToOne
     private Djelatnik djelatnik;
 
-    private Date datum;
-    
-    private BigDecimal cijenaUkupno;
-    
-    
-    public List<Usluga> getUsluge() {
-        return usluge;
+    public List<PosjetUsluga> getPosjetusluge() {
+        return posjetusluge;
     }
 
-    public void setUsluge(List<Usluga> usluge) {
-        this.usluge = usluge;
+    public void setPosjetusluge(List<PosjetUsluga> posjetusluge) {
+        this.posjetusluge = posjetusluge;
     }
 
     public Klijent getKlijent() {
@@ -54,14 +50,13 @@ public class Posjet extends Entitet{
     }
 
     public Djelatnik getDjelatnik() {
-       return djelatnik;
-   }
+        return djelatnik;
+    }
 
-   public void setDjelatnik(Djelatnik djelatnik) {
+    public void setDjelatnik(Djelatnik djelatnik) {
         this.djelatnik = djelatnik;
     }
 
-    
     public Date getDatum() {
         return datum;
     }
@@ -77,6 +72,13 @@ public class Posjet extends Entitet{
     public void setCijenaUkupno(BigDecimal cijenaUkupno) {
         this.cijenaUkupno = cijenaUkupno;
     }
+
+    private Date datum;
+    
+    private BigDecimal cijenaUkupno;
+    
+    
+    
 
     @Override
     public String toString() {

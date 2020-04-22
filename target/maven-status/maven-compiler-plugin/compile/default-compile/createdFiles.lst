@@ -35,6 +35,7 @@ hr\edunova\frizerskisalon\view\ViewPosjet$7.class
 hr\edunova\frizerskisalon\view\ViewKlijent$4.class
 hr\edunova\frizerskisalon\view\ViewUsluga$4.class
 hr\edunova\frizerskisalon\view\ViewPosjet$4.class
+hr\edunova\frizerskisalon\model\PosjetUsluga.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik$2.class
 hr\edunova\frizerskisalon\view\ViewDjelatnik.class
 hr\edunova\frizerskisalon\model\Klijent.class

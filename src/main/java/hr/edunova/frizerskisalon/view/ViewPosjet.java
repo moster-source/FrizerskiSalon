@@ -12,10 +12,12 @@ import hr.edunova.frizerskisalon.controller.ObradaUsluga;
 import hr.edunova.frizerskisalon.model.Djelatnik;
 import hr.edunova.frizerskisalon.model.Klijent;
 import hr.edunova.frizerskisalon.model.Posjet;
+import hr.edunova.frizerskisalon.model.PosjetUsluga;
 import hr.edunova.frizerskisalon.model.Usluga;
 import hr.edunova.frizerskisalon.util.EdunovaException;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -68,30 +70,18 @@ private final ObradaPosjet obrada;
          
         private void ucitajVrijednosti() {
            
-       /*
-        obrada.getEntitet().setSmjer(cmbSmjer.getModel()
-                .getElementAt(cmbSmjer.getSelectedIndex()));
         
-        obrada.getEntitet().setPredavac((Predavac) cmbPredavac.getSelectedItem());
+       
+        obrada.getEntitet().setDjelatnik(cmbDjelatnici.getModel().getElementAt(cmbDjelatnici.getSelectedIndex()));
+        obrada.getEntitet().setKlijent(cmbKlijenti.getModel().getElementAt(cmbKlijenti.getSelectedIndex()));
         
+      
+              
         try {
-            DefaultListModel<Clan> m = (DefaultListModel<Clan>)lstPolazniciUGrupi.getModel();
-            obrada.ocistiClanove();
-            for(int i=0;i<m.getSize();i++){
-                obrada.getEntitet().getClanovi().add(m.get(i));
-            }
-        } catch (Exception e) {
-        }
-        */
-       obrada.getEntitet().setDatum(new Date());
-       obrada.getEntitet().setDjelatnik((Djelatnik) cmbDjelatnici.getSelectedItem());
-        obrada.getEntitet().setKlijent((Klijent) cmbKlijenti.getSelectedItem());
-        
-        try {
-            DefaultListModel<Usluga> m = (DefaultListModel<Usluga>)lstUslugePosjet.getModel();
+            DefaultListModel<PosjetUsluga> m = (DefaultListModel<PosjetUsluga>)lstUslugePosjet.getModel();
             obrada.ocistiUsluge();
             for(int i=0;i<m.getSize();i++){
-                obrada.getEntitet().getUsluge().add(m.get(i));
+                obrada.getEntitet().getPosjetusluge().add(m.get(i));
             }
         } catch (Exception e) {
         }
@@ -99,14 +89,16 @@ private final ObradaPosjet obrada;
         }
         
         private void ucitajUslugeSve() {
+            
         DefaultListModel<Usluga> k = new DefaultListModel<>();
         new ObradaUsluga().getPodaci().forEach(s->k.addElement(s));
         lstUsluge.setModel(k);
         
     }
         private void postaviDjelatnika() {
-        for (int i = 0; i < cmbDjelatnici.getModel().getSize(); i++) {
-            if (cmbDjelatnici.getModel().getElementAt(i).getSifra().equals(
+         ComboBoxModel<Djelatnik> m = cmbDjelatnici.getModel();
+        for (int i = 0; i < m.getSize(); i++) {
+            if (m.getElementAt(i).getSifra().equals(
                     obrada.getEntitet().getDjelatnik().getSifra())) {
                 cmbDjelatnici.setSelectedIndex(i);
                 break;
@@ -115,8 +107,9 @@ private final ObradaPosjet obrada;
     }
         
         private void postaviKlijenta() {
-        for (int i = 0; i < cmbKlijenti.getModel().getSize(); i++) {
-            if (cmbKlijenti.getModel().getElementAt(i).getSifra().equals(
+       ComboBoxModel<Klijent> m = cmbKlijenti.getModel();
+        for (int i = 0; i < m.getSize(); i++) {
+            if (m.getElementAt(i).getSifra().equals(
                     obrada.getEntitet().getKlijent().getSifra())) {
                 cmbKlijenti.setSelectedIndex(i);
                 break;
@@ -125,26 +118,16 @@ private final ObradaPosjet obrada;
     }
         
            private void postaviUsluge() {
-        DefaultListModel<Usluga> m = new DefaultListModel<>();
-        obrada.getEntitet().getUsluge().forEach(c -> {
+        DefaultListModel<PosjetUsluga> m = new DefaultListModel<>();
+        obrada.getEntitet().getPosjetusluge().forEach(c -> {
             m.addElement(c);
         });
         lstUslugePosjet.setModel(m);
     }
         
         private void postaviVrijednosti() {
-       //txtNaziv.setText(obrada.getEntitet().getNaziv());
-        //txtBrojPolaznika.setText(Pomocno.getFormatCijelogBroja(obrada.getEntitet().getBrojPolaznika()));
+       
         
-        //if(obrada.getEntitet().getDatumPocetka()==null){
-        //    dpDatumPocetka.setDate(null);
-        //}else{
-            //dpDatumPocetka.setDate(Pomocno.convertToLocalDateViaInstant(obrada.getEntitet().getDatumPocetka()));
-        //}
-        
-        // ovo bi radilo ako bi uspještno redefinirali equals i hashcode metode na POJO
-        //cmbSmjer.setSelectedItem(obrada.getEntitet().getSmjer());
-        //postaviSmjer();
         postaviKlijenta();
         postaviDjelatnika();
         postaviUsluge();
@@ -172,7 +155,6 @@ private final ObradaPosjet obrada;
         btnDodajNovuPosjetu = new javax.swing.JButton();
         btnObrisiPosjetu = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         cmbDjelatnici = new javax.swing.JComboBox<>();
         cmbKlijenti = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -228,10 +210,6 @@ private final ObradaPosjet obrada;
 
         jLabel5.setText("cijena usluge");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("0 kuna");
-
         lstUslugePosjet.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lstUslugePosjetMouseClicked(evt);
@@ -273,10 +251,7 @@ private final ObradaPosjet obrada;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnDodajNovuPosjetu)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -307,11 +282,9 @@ private final ObradaPosjet obrada;
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -365,8 +338,10 @@ private final ObradaPosjet obrada;
 
     private void btnDodajNovuPosjetuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajNovuPosjetuActionPerformed
          try {
-            
+            obrada.setEntitet(new Posjet());
+            obrada.getEntitet().setDatum(new Date());
             ucitajVrijednosti();
+            
             obrada.create();
             ucitaj();
         } catch (EdunovaException ex) {
@@ -398,46 +373,54 @@ private final ObradaPosjet obrada;
             return;
         }
         try {
-            obrada.ocistiUsluge();
+            //obrada.ocistiUsluge();
+            btnObrisiPosjetu.setEnabled(false);
             obrada.delete();
             ucitaj();
+            btnObrisiPosjetu.setEnabled(true);
         } catch (EdunovaException e) {
             JOptionPane.showMessageDialog(null, e.getPoruka());
+        }
+        catch(Exception e){
+            ucitaj();
+            btnObrisiPosjetu.setEnabled(true);
         }
     }//GEN-LAST:event_btnObrisiPosjetuActionPerformed
 
     private void lstUslugeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstUslugeMouseClicked
                 if (evt.getClickCount() == 2) {
-            
-                    
-                    int index = lstUsluge.locationToIndex(evt.getPoint());
+            int index = lstUsluge.locationToIndex(evt.getPoint());
             Usluga p = lstUsluge.getModel().getElementAt(index);
             
             try {
-                DefaultListModel<Usluga> m = (DefaultListModel<Usluga>) lstUslugePosjet.getModel();
+                DefaultListModel<PosjetUsluga> m = (DefaultListModel<PosjetUsluga>) lstUslugePosjet.getModel();
               for(int i=0;i<m.getSize();i++){
-                  if(m.get(i).getSifra().equals(p.getSifra())){
-                      
+                  if(m.get(i).getUsluga().getSifra().equals(p.getSifra())){
                       return;
                   }
               } 
             } catch (Exception e) {
             }
+             
             
+    
             
+            PosjetUsluga c = new PosjetUsluga();
+            c.setUsluga(p);
+            c.setPosjet(obrada.getEntitet());
+            //c.setDatumUpisa(new Date());
+            DefaultListModel<PosjetUsluga> m;
             
-             DefaultListModel<Usluga> m;
             try {
-                m = (DefaultListModel<Usluga>) lstUslugePosjet.getModel();
+                m
+                        = (DefaultListModel<PosjetUsluga>) lstUslugePosjet.getModel();
             } catch (Exception e) {
                 m = new DefaultListModel<>();
                 lstUslugePosjet.setModel(m);
             }
             
-            m.addElement(p);
+            m.addElement(c);
             lstUslugePosjet.repaint();
-            
-            
             
         }
                 postaviCijenuSvihSelektiranihUsluga();
@@ -459,7 +442,7 @@ private final ObradaPosjet obrada;
         if (evt.getClickCount() == 2) {
             int index = lstUslugePosjet.locationToIndex(evt.getPoint());
             
-            DefaultListModel<Usluga> m = (DefaultListModel<Usluga>) lstUslugePosjet.getModel();
+            DefaultListModel<PosjetUsluga> m = (DefaultListModel<PosjetUsluga>) lstUslugePosjet.getModel();
             m.remove(index);
             
             lstUslugePosjet.repaint();
@@ -496,7 +479,6 @@ private final ObradaPosjet obrada;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -505,18 +487,18 @@ private final ObradaPosjet obrada;
     private javax.swing.JLabel lblCijenaSvihUsluga;
     private javax.swing.JList<Posjet> lstPodaci;
     private javax.swing.JList<Usluga> lstUsluge;
-    private javax.swing.JList<Usluga> lstUslugePosjet;
+    private javax.swing.JList<PosjetUsluga> lstUslugePosjet;
     // End of variables declaration//GEN-END:variables
 
     private void postaviCijenuSvihSelektiranihUsluga() {
-     Usluga u = new Usluga();
+     PosjetUsluga u = new PosjetUsluga();
         BigDecimal b = BigDecimal.ZERO;
         try {
-            DefaultListModel<Usluga> m = (DefaultListModel<Usluga>) lstUslugePosjet.getModel();
+            DefaultListModel<PosjetUsluga> m = (DefaultListModel<PosjetUsluga>) lstUslugePosjet.getModel();
             int x = m.getSize();
             for (int i = 0; i < x; i++) {
             u = m.get(i);
-            b = b.add(u.getCijena());
+            b = b.add(u.getUsluga().getCijena());
             
         }
             lblCijenaSvihUsluga.setText(b.toString().concat(" kn"));
@@ -525,10 +507,6 @@ private final ObradaPosjet obrada;
            lblCijenaSvihUsluga.setText("0,00 kn");
         }
         
-        
-        
-       
-       
         
     }
 
